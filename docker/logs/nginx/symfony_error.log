@@ -1,0 +1,1 @@
+2018/05/09 00:07:49 [error] 5#5: *1 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.25.0.1, server: margiela.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.25.0.4:9000", host: "127.0.0.1:8082"
