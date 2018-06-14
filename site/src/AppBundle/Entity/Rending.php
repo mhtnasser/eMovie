@@ -55,7 +55,7 @@ class Rending
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -65,13 +65,10 @@ class Rending
      *
      * @param string $nbKm
      *
-     * @return Rending
      */
-    public function setNbKm($nbKm)
+    public function setNbKm(string $nbKm) : void
     {
         $this->nbKm = $nbKm;
-
-        return $this;
     }
 
     /**
@@ -79,7 +76,7 @@ class Rending
      *
      * @return string
      */
-    public function getNbKm()
+    public function getNbKm() : string
     {
         return $this->nbKm;
     }
@@ -89,13 +86,10 @@ class Rending
      *
      * @param \DateTime $dateStart
      *
-     * @return Rending
      */
-    public function setDateStart($dateStart)
+    public function setDateStart(\DateTime $dateStart) : void
     {
         $this->dateStart = $dateStart;
-
-        return $this;
     }
 
     /**
@@ -103,7 +97,7 @@ class Rending
      *
      * @return \DateTime
      */
-    public function getDateStart()
+    public function getDateStart() : \DateTime
     {
         return $this->dateStart;
     }
@@ -113,13 +107,10 @@ class Rending
      *
      * @param \DateTime $dateEnd
      *
-     * @return Rending
      */
-    public function setDateEnd($dateEnd)
+    public function setDateEnd(\DateTime $dateEnd) : void
     {
         $this->dateEnd = $dateEnd;
-
-        return $this;
     }
 
     /**
@@ -127,7 +118,7 @@ class Rending
      *
      * @return \DateTime
      */
-    public function getDateEnd()
+    public function getDateEnd() : \DateTime
     {
         return $this->dateEnd;
     }
@@ -137,13 +128,10 @@ class Rending
      *
      * @param integer $priceByKm
      *
-     * @return Rending
      */
-    public function setPriceByKm($priceByKm)
+    public function setPriceByKm(int $priceByKm) : void
     {
         $this->priceByKm = $priceByKm;
-
-        return $this;
     }
 
     /**
@@ -151,7 +139,7 @@ class Rending
      *
      * @return int
      */
-    public function getPriceByKm()
+    public function getPriceByKm() : int
     {
         return $this->priceByKm;
     }

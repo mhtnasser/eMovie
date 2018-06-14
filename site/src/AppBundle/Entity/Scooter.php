@@ -41,7 +41,7 @@ class Scooter
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -51,13 +51,10 @@ class Scooter
      *
      * @param integer $cc
      *
-     * @return Scooter
      */
-    public function setCc($cc)
+    public function setCc(int $cc) : void
     {
         $this->cc = $cc;
-
-        return $this;
     }
 
     /**
@@ -65,7 +62,7 @@ class Scooter
      *
      * @return int
      */
-    public function getCc()
+    public function getCc() : int
     {
         return $this->cc;
     }
@@ -75,13 +72,10 @@ class Scooter
      *
      * @param boolean $heatingHandle
      *
-     * @return Scooter
      */
-    public function setHeatingHandle($heatingHandle)
+    public function setHeatingHandle(bool $heatingHandle) : void
     {
         $this->heatingHandle = $heatingHandle;
-
-        return $this;
     }
 
     /**
@@ -89,7 +83,7 @@ class Scooter
      *
      * @return bool
      */
-    public function getHeatingHandle()
+    public function getHeatingHandle() : bool
     {
         return $this->heatingHandle;
     }

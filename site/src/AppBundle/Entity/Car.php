@@ -48,7 +48,7 @@ class Car
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -58,13 +58,10 @@ class Car
      *
      * @param integer $nbSeat
      *
-     * @return Car
      */
-    public function setNbSeat($nbSeat)
+    public function setNbSeat(int $nbSeat) : void
     {
         $this->nbSeat = $nbSeat;
-
-        return $this;
     }
 
     /**
@@ -72,7 +69,7 @@ class Car
      *
      * @return int
      */
-    public function getNbSeat()
+    public function getNbSeat() : int
     {
         return $this->nbSeat;
     }
@@ -82,13 +79,10 @@ class Car
      *
      * @param boolean $airConditioning
      *
-     * @return Car
      */
-    public function setAirConditioning($airConditioning)
+    public function setAirConditioning(bool $airConditioning) : void
     {
         $this->airConditioning = $airConditioning;
-
-        return $this;
     }
 
     /**
@@ -96,7 +90,7 @@ class Car
      *
      * @return bool
      */
-    public function getAirConditioning()
+    public function getAirConditioning() : bool
     {
         return $this->airConditioning;
     }
@@ -106,13 +100,10 @@ class Car
      *
      * @param boolean $heater
      *
-     * @return Car
      */
-    public function setHeater($heater)
+    public function setHeater(bool $heater) : void
     {
         $this->heater = $heater;
-
-        return $this;
     }
 
     /**
@@ -120,7 +111,7 @@ class Car
      *
      * @return bool
      */
-    public function getHeater()
+    public function getHeater() : bool
     {
         return $this->heater;
     }
