@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -24,9 +25,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="FirstName", type="string", length=255)
+     * @ORM\Column(name="userName", type="string", length=255)
      */
-    private $firstName;
+    private $userName;
 
     /**
      * @var string
@@ -66,9 +67,9 @@ class User
     /**
      * @var array
      *
-     * @ORM\Column(name="role", type="array")
+     * @ORM\Column(name="roles", type="array")
      */
-    private $role;
+    private $roles;
 
 
     /**
@@ -76,47 +77,40 @@ class User
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
 
     /**
-     * Set firstName
+     * Set userName
      *
-     * @param string $firstName
+     * @param string $userName
      *
-     * @return User
      */
-    public function setFirstName($firstName)
+    public function setUserName(string $userName) : void
     {
-        $this->firstName = $firstName;
-
-        return $this;
+        $this->userName = $userName;
     }
 
     /**
-     * Get firstName
+     * Get userName
      *
      * @return string
      */
-    public function getFirstName()
+    public function getUserName() : string
     {
-        return $this->firstName;
+        return $this->userName;
     }
 
     /**
      * Set lastName
      *
      * @param string $lastName
-     *
-     * @return User
      */
-    public function setLastName($lastName)
+    public function setLastName(string $lastName) : void
     {
         $this->lastName = $lastName;
-
-        return $this;
     }
 
     /**
@@ -124,7 +118,7 @@ class User
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName() : string
     {
         return $this->lastName;
     }
@@ -133,14 +127,10 @@ class User
      * Set password
      *
      * @param string $password
-     *
-     * @return User
      */
-    public function setPassword($password)
+    public function setPassword(string $password) : void
     {
         $this->password = $password;
-
-        return $this;
     }
 
     /**
@@ -148,7 +138,7 @@ class User
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }
@@ -158,13 +148,10 @@ class User
      *
      * @param string $email
      *
-     * @return User
      */
-    public function setEmail($email)
+    public function setEmail(string $email) : void
     {
         $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -172,7 +159,7 @@ class User
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail() : string
     {
         return $this->email;
     }
@@ -182,13 +169,10 @@ class User
      *
      * @param integer $loyalty
      *
-     * @return User
      */
-    public function setLoyalty($loyalty)
+    public function setLoyalty(int $loyalty) : void
     {
         $this->loyalty = $loyalty;
-
-        return $this;
     }
 
     /**
@@ -196,7 +180,7 @@ class User
      *
      * @return int
      */
-    public function getLoyalty()
+    public function getLoyalty() : int
     {
         return $this->loyalty;
     }
@@ -206,13 +190,10 @@ class User
      *
      * @param \DateTime $registration
      *
-     * @return User
      */
-    public function setRegistration($registration)
+    public function setRegistration(\DateTime $registration) : void
     {
         $this->registration = $registration;
-
-        return $this;
     }
 
     /**
@@ -220,33 +201,53 @@ class User
      *
      * @return \DateTime
      */
-    public function getRegistration()
+    public function getRegistration() : \DateTime
     {
         return $this->registration;
     }
 
     /**
-     * Set role
+     * Set roles
      *
-     * @param array $role
+     * @param array $roles
      *
-     * @return User
      */
-    public function setRole($role)
+    public function setRoles(array $roles) : void
     {
-        $this->role = $role;
-
-        return $this;
+        $this->roles = $roles;
     }
 
     /**
-     * Get role
+     * Get roles
      *
      * @return array
      */
-    public function getRole()
+    public function getRoles() : array
     {
-        return $this->role;
+        return $this->roles;
+    }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt() : null
+    {
+        return null;
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials() : void
+    {
+        $this->password = null;
     }
 }
 

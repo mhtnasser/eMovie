@@ -41,7 +41,7 @@ class ImageCar
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -51,13 +51,10 @@ class ImageCar
      *
      * @param string $url
      *
-     * @return ImageCar
      */
-    public function setUrl($url)
+    public function setUrl(string $url) : void
     {
         $this->url = $url;
-
-        return $this;
     }
 
     /**
@@ -65,7 +62,7 @@ class ImageCar
      *
      * @return string
      */
-    public function getUrl()
+    public function getUrl() : string
     {
         return $this->url;
     }
@@ -75,13 +72,10 @@ class ImageCar
      *
      * @param string $alt
      *
-     * @return ImageCar
      */
-    public function setAlt($alt)
+    public function setAlt(string $alt) : void
     {
         $this->alt = $alt;
-
-        return $this;
     }
 
     /**
@@ -89,7 +83,7 @@ class ImageCar
      *
      * @return string
      */
-    public function getAlt()
+    public function getAlt() : string
     {
         return $this->alt;
     }
