@@ -88,3 +88,4 @@ class Scooter extends Engin
         return $this->heatingHandle;
     }
 }
+

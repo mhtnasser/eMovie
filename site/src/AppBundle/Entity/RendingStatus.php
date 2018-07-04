@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ReservationStatus
+ * RendingStatus
  *
- * @ORM\Table(name="reservation_status")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ReservationStatusRepository")
+ * @ORM\Table(name="rending_status")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\RendingStatusRepository")
  */
-class ReservationStatus
+class RendingStatus
 {
     /**
      * @var int
@@ -27,6 +27,12 @@ class ReservationStatus
      * @ORM\Column(name="Libelle", type="string", length=255)
      */
     private $libelle;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rending" , inversedBy="rendingStatus");
+     */
+    private $rending;
+    
 
 
     /**
@@ -58,5 +64,28 @@ class ReservationStatus
     {
         return $this->libelle;
     }
-}
 
+    /**
+     * Set rending
+     *
+     * @param \AppBundle\Entity\Rending $rending
+     *
+     * @return RendingStatus
+     */
+    public function setRending(\AppBundle\Entity\Rending $rending = null)
+    {
+        $this->rending = $rending;
+
+        return $this;
+    }
+
+    /**
+     * Get rending
+     *
+     * @return \AppBundle\Entity\Rending
+     */
+    public function getRending()
+    {
+        return $this->rending;
+    }
+}

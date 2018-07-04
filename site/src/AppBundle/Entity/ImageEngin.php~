@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="image_car")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageCarRepository")
  */
-class ImageCar
+class ImageEngin
 {
     /**
      * @var int
@@ -34,6 +34,14 @@ class ImageCar
      * @ORM\Column(name="alt", type="string", length=255)
      */
     private $alt;
+    
+    /**
+     *
+     * @var unknown
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin" , inversedBy="imagesEngin");
+     */
+    private $engin;
+    
 
 
     /**
