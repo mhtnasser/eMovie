@@ -71,6 +71,8 @@ class User implements UserInterface
      */
     private $roles;
 
+    protected $plainPassword;
+
 
     /**
      * Get id
@@ -234,9 +236,9 @@ class User implements UserInterface
      *
      * @return string|null The salt
      */
-    public function getSalt() : null
+    public function getSalt()
     {
-        return null;
+        return;
     }
 
     /**
@@ -247,7 +249,23 @@ class User implements UserInterface
      */
     public function eraseCredentials() : void
     {
-        $this->password = null;
+        $this->plainPassword = null;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword(): string
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword(string $plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 }
 

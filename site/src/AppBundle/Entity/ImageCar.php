@@ -35,6 +35,28 @@ class ImageCar
      */
     private $alt;
 
+    /**
+     * @var Engin
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $engin;
+
+    /**
+     * @return Engin
+     */
+    public function getEngin(): Engin
+    {
+        return $this->engin;
+    }
+
+    /**
+     * @param Engin $engin
+     */
+    public function setEngin(Engin $engin) : void
+    {
+        $this->engin = $engin;
+    }
 
     /**
      * Get id

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="car")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CarRepository")
  */
-class Car
+class Car extends Engin
 {
     /**
      * @var int
@@ -42,6 +42,11 @@ class Car
      */
     private $heater;
 
+
+    public function __construct()
+    {
+        $this->id =1;
+    }
 
     /**
      * Get id

@@ -26,49 +26,49 @@ class Engin
      *
      * @ORM\Column(name="Brand", type="string", length=255)
      */
-    private $brand;
+    protected $brand;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Model", type="string", length=255)
      */
-    private $model;
+    protected $model;
 
     /**
      * @var string
      *
      * @ORM\Column(name="SerialNumber", type="string", length=255)
      */
-    private $serialNumber;
+    protected $serialNumber;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Color", type="string", length=255)
      */
-    private $color;
+    protected $color;
 
     /**
      * @var string
      *
      * @ORM\Column(name="LicensePlate", type="string", length=255)
      */
-    private $licensePlate;
+    protected $licensePlate;
 
     /**
      * @var int
      *
      * @ORM\Column(name="NbKm", type="integer", length=255)
      */
-    private $nbKm;
+    protected $nbKm;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateBuy", type="datetime")
      */
-    private $dateBuy;
+    protected $dateBuy;
 
     /**
      * @var int
@@ -82,7 +82,7 @@ class Engin
      *
      * @ORM\Column(name="Place", type="string", length=255)
      */
-    private $place;
+    protected $place;
 
 
     /**

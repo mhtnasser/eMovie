@@ -29,6 +29,11 @@ class ReservationStatus
     private $libelle;
 
 
+    public function __construct()
+    {
+        $this->id = 1;
+    }
+
     /**
      * Get id
      *
