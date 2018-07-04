@@ -29,12 +29,17 @@ class ReservationStatus
     private $libelle;
 
 
+    public function __construct()
+    {
+        $this->id = 1;
+    }
+
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -43,14 +48,10 @@ class ReservationStatus
      * Set libelle
      *
      * @param string $libelle
-     *
-     * @return ReservationStatus
      */
-    public function setLibelle($libelle)
+    public function setLibelle(string $libelle) : void
     {
         $this->libelle = $libelle;
-
-        return $this;
     }
 
     /**
@@ -58,7 +59,7 @@ class ReservationStatus
      *
      * @return string
      */
-    public function getLibelle()
+    public function getLibelle() : string
     {
         return $this->libelle;
     }
