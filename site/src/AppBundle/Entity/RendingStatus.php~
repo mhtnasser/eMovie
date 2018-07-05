@@ -33,7 +33,10 @@ class RendingStatus
      */
     private $rending;
     
+<<<<<<< HEAD:site/src/AppBundle/Entity/RendingStatus.php~
 
+=======
+>>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce:site/src/AppBundle/Entity/RendingStatus.php~
 
     public function __construct()
     {

@@ -82,11 +82,23 @@ class Engin
      *
      * @ORM\Column(name="Place", type="string", length=255)
      */
+<<<<<<< HEAD
     protected $place;
+=======
+    private $place;
+    
+    /**
+     * 
+     * @var unknown
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rending" , mappedBy="engin");
+     */
+    private $rending;
+>>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce
 
     /**
      *
      * @var unknown
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rending" , mappedBy="engin");
      */
     private $rending;
@@ -94,6 +106,8 @@ class Engin
     /**
      *
      * @var unknown
+=======
+>>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ImageEngin" , mappedBy="engin");
      */
     private $imagesEngin;
@@ -296,6 +310,7 @@ class Engin
     {
         return $this->place;
     }
+<<<<<<< HEAD
 
     /**
      * Constructor
@@ -355,6 +370,66 @@ class Engin
     }
 
     /**
+=======
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rending = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagesEngin = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add rending
+     *
+     * @param \AppBundle\Entity\Rending $rending
+     *
+     * @return Engin
+     */
+    public function addRending(\AppBundle\Entity\Rending $rending)
+    {
+        $this->rending[] = $rending;
+
+        return $this;
+    }
+
+    /**
+     * Remove rending
+     *
+     * @param \AppBundle\Entity\Rending $rending
+     */
+    public function removeRending(\AppBundle\Entity\Rending $rending)
+    {
+        $this->rending->removeElement($rending);
+    }
+
+    /**
+     * Get rending
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRending()
+    {
+        return $this->rending;
+    }
+
+    /**
+     * Add imagesEngin
+     *
+     * @param \AppBundle\Entity\ImageEngin $imagesEngin
+     *
+     * @return Engin
+     */
+    public function addImagesEngin(\AppBundle\Entity\ImageEngin $imagesEngin)
+    {
+        $this->imagesEngin[] = $imagesEngin;
+
+        return $this;
+    }
+
+    /**
+>>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce
      * Remove imagesEngin
      *
      * @param \AppBundle\Entity\ImageEngin $imagesEngin

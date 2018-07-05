@@ -42,6 +42,7 @@ class ImageEngin
      */
     private $engin;
     
+<<<<<<< HEAD:site/src/AppBundle/Entity/ImageEngin.php~
 
     /**
      * @var Engin
@@ -49,6 +50,8 @@ class ImageEngin
      * @ORM\JoinColumn(nullable=false)
      */
     protected $engin;
+=======
+>>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce:site/src/AppBundle/Entity/ImageEngin.php~
 
     /**
      * @return Engin
