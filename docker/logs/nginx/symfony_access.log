@@ -1827,3 +1827,6 @@
 172.25.0.1 - - [16/May/2018:10:29:30 +0000] "GET /app_dev.php/all_user HTTP/1.1" 200 555 "http://127.0.0.1:8082/app_dev.php/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
 172.25.0.1 - - [16/May/2018:10:30:02 +0000] "GET /app_dev.php/edit HTTP/1.1" 200 45798 "http://127.0.0.1:8082/app_dev.php/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
 172.25.0.1 - - [16/May/2018:10:30:06 +0000] "GET /app_dev.php/_wdt/1c6560 HTTP/1.1" 200 26240 "http://127.0.0.1:8082/app_dev.php/edit" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
+192.168.99.1 - - [14/Jun/2018:13:31:44 +0000] "GET / HTTP/1.1" 200 4114 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36"
+192.168.99.1 - - [14/Jun/2018:13:34:25 +0000] "GET / HTTP/1.1" 200 4597 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36"
+192.168.99.1 - - [14/Jun/2018:13:34:25 +0000] "GET /favicon.ico HTTP/1.1" 200 6518 "http://192.168.99.100:8082/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36"

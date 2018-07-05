@@ -43,11 +43,6 @@ class Car extends Engin
     private $heater;
 
 
-    public function __construct()
-    {
-        $this->id =1;
-    }
-
     /**
      * Get id
      *
@@ -121,3 +116,4 @@ class Car extends Engin
         return $this->heater;
     }
 }
+

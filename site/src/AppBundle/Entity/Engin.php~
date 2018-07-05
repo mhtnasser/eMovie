@@ -26,49 +26,49 @@ class Engin
      *
      * @ORM\Column(name="Brand", type="string", length=255)
      */
-    protected $brand;
+    private $brand;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Model", type="string", length=255)
      */
-    protected $model;
+    private $model;
 
     /**
      * @var string
      *
      * @ORM\Column(name="SerialNumber", type="string", length=255)
      */
-    protected $serialNumber;
+    private $serialNumber;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Color", type="string", length=255)
      */
-    protected $color;
+    private $color;
 
     /**
      * @var string
      *
      * @ORM\Column(name="LicensePlate", type="string", length=255)
      */
-    protected $licensePlate;
+    private $licensePlate;
 
     /**
      * @var int
      *
      * @ORM\Column(name="NbKm", type="integer", length=255)
      */
-    protected $nbKm;
+    private $nbKm;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateBuy", type="datetime")
      */
-    protected $dateBuy;
+    private $dateBuy;
 
     /**
      * @var int
@@ -82,10 +82,10 @@ class Engin
      *
      * @ORM\Column(name="Place", type="string", length=255)
      */
-    protected $place;
-
+    private $place;
+    
     /**
-     *
+     * 
      * @var unknown
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rending" , mappedBy="engin");
      */
@@ -103,7 +103,7 @@ class Engin
      *
      * @return int
      */
-    public function getId(): int
+    public function getId() : int
     {
         return $this->id;
     }
@@ -114,7 +114,7 @@ class Engin
      * @param string $brand
      *
      */
-    public function setBrand(string $brand): void
+    public function setBrand(string $brand) : void
     {
         $this->brand = $brand;
     }
@@ -124,7 +124,7 @@ class Engin
      *
      * @return string
      */
-    public function getBrand(): string
+    public function getBrand() : string
     {
         return $this->brand;
     }
@@ -135,7 +135,7 @@ class Engin
      * @param string $model
      *
      */
-    public function setModel(string $model): void
+    public function setModel(string $model) : void
     {
         $this->model = $model;
     }
@@ -145,7 +145,7 @@ class Engin
      *
      * @return string
      */
-    public function getModel(): string
+    public function getModel() : string
     {
         return $this->model;
     }
@@ -156,7 +156,7 @@ class Engin
      * @param string $serialNumber
      *
      */
-    public function setSerialNumber(string $serialNumber): void
+    public function setSerialNumber(string $serialNumber) : void
     {
         $this->serialNumber = $serialNumber;
     }
@@ -166,7 +166,7 @@ class Engin
      *
      * @return string
      */
-    public function getSerialNumber(): string
+    public function getSerialNumber() : string
     {
         return $this->serialNumber;
     }
@@ -177,7 +177,7 @@ class Engin
      * @param string $color
      *
      */
-    public function setColor(string $color): void
+    public function setColor(string $color) : void
     {
         $this->color = $color;
     }
@@ -187,7 +187,7 @@ class Engin
      *
      * @return string
      */
-    public function getColor(): string
+    public function getColor() : string
     {
         return $this->color;
     }
@@ -198,7 +198,7 @@ class Engin
      * @param string $licensePlate
      *
      */
-    public function setLicensePlate(string $licensePlate): void
+    public function setLicensePlate(string $licensePlate) : void
     {
         $this->licensePlate = $licensePlate;
     }
@@ -208,7 +208,7 @@ class Engin
      *
      * @return string
      */
-    public function getLicensePlate(): string
+    public function getLicensePlate() : string
     {
         return $this->licensePlate;
     }
@@ -219,7 +219,7 @@ class Engin
      * @param int $nbKm
      *
      */
-    public function setNbKm(int $nbKm): void
+    public function setNbKm(int $nbKm) : void
     {
         $this->nbKm = $nbKm;
     }
@@ -229,7 +229,7 @@ class Engin
      *
      * @return int
      */
-    public function getNbKm(): int
+    public function getNbKm() : int
     {
         return $this->nbKm;
     }
@@ -240,7 +240,7 @@ class Engin
      * @param \DateTime $dateBuy
      *
      */
-    public function setDateBuy(\DateTime $dateBuy): void
+    public function setDateBuy(\DateTime $dateBuy) : void
     {
         $this->dateBuy = $dateBuy;
     }
@@ -250,7 +250,7 @@ class Engin
      *
      * @return \DateTime
      */
-    public function getDateBuy(): \DateTime
+    public function getDateBuy() : \DateTime
     {
         return $this->dateBuy;
     }
@@ -261,7 +261,7 @@ class Engin
      * @param integer $price
      *
      */
-    public function setPrice(int $price): void
+    public function setPrice(int $price) : void
     {
         $this->price = $price;
     }
@@ -271,7 +271,7 @@ class Engin
      *
      * @return int
      */
-    public function getPrice(): int
+    public function getPrice() : int
     {
         return $this->price;
     }
@@ -282,7 +282,7 @@ class Engin
      * @param string $place
      *
      */
-    public function setPlace(string $place): void
+    public function setPlace(string $place) : void
     {
         $this->place = $place;
     }
@@ -292,11 +292,10 @@ class Engin
      *
      * @return string
      */
-    public function getPlace(): string
+    public function getPlace() : string
     {
         return $this->place;
     }
-
     /**
      * Constructor
      */

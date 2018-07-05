@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ImageCar
+ * ImageEngin
  *
- * @ORM\Table(name="image_car")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageCarRepository")
+ * @ORM\Table(name="engin_images")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\EnginImageRepository")
  */
-class ImageCar
+class ImageEngin
 {
     /**
      * @var int
@@ -34,29 +34,15 @@ class ImageCar
      * @ORM\Column(name="alt", type="string", length=255)
      */
     private $alt;
-
+    
     /**
-     * @var Engin
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin")
-     * @ORM\JoinColumn(nullable=false)
+     *
+     * @var unknown
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin" , inversedBy="imagesEngin");
      */
-    protected $engin;
+    private $engin;
+    
 
-    /**
-     * @return Engin
-     */
-    public function getEngin(): Engin
-    {
-        return $this->engin;
-    }
-
-    /**
-     * @param Engin $engin
-     */
-    public function setEngin(Engin $engin) : void
-    {
-        $this->engin = $engin;
-    }
 
     /**
      * Get id
@@ -109,5 +95,28 @@ class ImageCar
     {
         return $this->alt;
     }
-}
 
+    /**
+     * Set engin
+     *
+     * @param \AppBundle\Entity\Engin $engin
+     *
+     * @return ImageEngin
+     */
+    public function setEngin(\AppBundle\Entity\Engin $engin = null)
+    {
+        $this->engin = $engin;
+
+        return $this;
+    }
+
+    /**
+     * Get engin
+     *
+     * @return \AppBundle\Entity\Engin
+     */
+    public function getEngin()
+    {
+        return $this->engin;
+    }
+}
