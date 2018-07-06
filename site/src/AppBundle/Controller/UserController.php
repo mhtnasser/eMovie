@@ -29,6 +29,7 @@ class UserController extends Controller
         $m->setEmail('nik@pop.com');
         $m->setLoyalty(2);
         $m->setRegistration(new \DateTime('now'));
+        $m->setPlainPassword("vcgfcn");
         return $m;
     }
 }
