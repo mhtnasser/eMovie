@@ -3,12 +3,18 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
+use Doctrine\ORM\Mapping\InheritanceType;
 
 /**
- * Engin
  *
+ * @InheritanceType("JOINED")
+ * @DiscriminatorColumn(name="type", type="string")
+ * @DiscriminatorMap({"engin" = "engin", "scooter" = "scooter", "car" = "car"})
  * @ORM\Table(name="engin")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EnginRepository")
+ *
  */
 class Engin
 {

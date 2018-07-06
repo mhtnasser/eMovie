@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -72,6 +74,17 @@ class User implements UserInterface
     private $roles;
 
     protected $plainPassword;
+
+    /**
+     * One Product has Many Features.
+     * @OneToMany(targetEntity="Rending", mappedBy="user")
+     */
+    private $rendings;
+    // ...
+
+    public function __construct() {
+        $this->rendings = new ArrayCollection();
+    }
 
 
     /**
