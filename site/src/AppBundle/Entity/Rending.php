@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * Rending
@@ -56,10 +58,16 @@ class Rending
     
     /**
      *
-     * @var unknown
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin" , inversedBy="rending");
      */
     private $engin;
+
+    /**
+     * Many Features have One Product.
+     * @ManyToOne(targetEntity="user", inversedBy="rendings")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
 
     /**
@@ -220,4 +228,22 @@ class Rending
     {
         return $this->engin;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
 }
