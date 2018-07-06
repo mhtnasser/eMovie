@@ -251,7 +251,6 @@ class User implements UserInterface
     {
         $this->plainPassword = null;
     }
-<<<<<<< HEAD
 
     /**
      * @return string
@@ -268,6 +267,4 @@ class User implements UserInterface
     {
         $this->plainPassword = $plainPassword;
     }
-=======
->>>>>>> 1dc7adffbdedab87e073d745b353f94640026dce
 }

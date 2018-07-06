@@ -47,7 +47,7 @@ class AuthTokenController extends Controller
 
         $user = $em->getRepository('AppBundle:User')
             ->findOneByEmail($credentiels->getLogin());
-        if ( !$user)
+        if (!$user)
         { // l'utilisateur n'existe pas
             return $this->invalidCredentials('l\'utilisateur n\'existe pas');
         }
@@ -59,6 +59,7 @@ class AuthTokenController extends Controller
             return $this->invalidCredentials('le mot de passe n\'est pas correct');
         }
 
+        /** @var AuthToken $authtoken */
         $authtoken = new AuthToken();
         $authtoken->setValue(base64_encode(random_bytes(50)));
         $authtoken->setCreatedAt(new \DateTime('now'));
