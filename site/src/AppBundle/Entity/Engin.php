@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
  *
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="type", type="string")
- * @DiscriminatorMap({"engin" = "engin",  "Scooter" = "scooter", "Car" = "car"})
+ * @DiscriminatorMap({"Engin" = "Engin", "Scooter" = "Scooter", "Car" = "Car"})
  * @ORM\Table(name="engin")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EnginRepository")
  *

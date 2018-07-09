@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Car extends Engin
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var int
@@ -41,22 +33,6 @@ class Car extends Engin
      * @ORM\Column(name="heater", type="boolean")
      */
     private $heater;
-
-
-    public function __construct()
-    {
-        $this->id =1;
-    }
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 
     /**
      * Set nbSeat

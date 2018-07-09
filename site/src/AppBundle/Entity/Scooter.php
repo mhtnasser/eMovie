@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Scooter extends Engin
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var int
@@ -34,17 +26,6 @@ class Scooter extends Engin
      * @ORM\Column(name="HeatingHandle", type="boolean")
      */
     private $heatingHandle;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 
     /**
      * Set cc

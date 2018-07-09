@@ -30,7 +30,7 @@ class ScooterFixtures extends Fixture
             $scooter->setColor('Color' . $i);
             $scooter->setDateBuy(new \DateTime('now'));
             $scooter->setLicensePlate('AA-10'.$i.'BB');
-            $scooter->setModel('Car' . $i);
+            $scooter->setModel('Scooter' . $i);
             $scooter->setNbKm(1000);
             $scooter->setPlace('2');
             $scooter->setSerialNumber('100' . $i);
