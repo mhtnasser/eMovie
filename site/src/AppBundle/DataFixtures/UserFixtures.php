@@ -31,17 +31,20 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         // TODO: Implement load() method.
-        $user = new User();
-        $user->setRoles(['role_user']);
-        $user->setUserName('pop');
-        $user->setLastName('nik');
-        $password = $this->encoder->encodePassword($user, '1234');
-        $user->setPassword($password);
-        $user->setEmail('nik@pop.com');
-        $user->setLoyalty(2);
-        $user->setRegistration(new \DateTime('now'));
+        for ($i = 0; $i < 10; $i++) {
+            $user = new User();
+            $user->setRoles(['role_user']);
+            $user->setUserName('pop');
+            $user->setLastName('nik' . $i);
+            $password = $this->encoder->encodePassword($user, '1234');
+            $user->setPassword($password);
+            $user->setEmail($i . 'nik@pop.com');
+            $user->setLoyalty(2);
+            $user->setRegistration(new \DateTime('now'));
 
-        $manager->persist($user);
+            //$this->addReference('user', $user);
+            $manager->persist($user);
+        }
         $manager->flush();
     }
 }
