@@ -64,7 +64,7 @@ class Rending
 
     /**
      * Many Features have One Product.
-     * @ManyToOne(targetEntity="user", inversedBy="rendings")
+     * @ManyToOne(targetEntity="User", inversedBy="rendings")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
  *
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="type", type="string")
- * @DiscriminatorMap({"engin" = "engin", "scooter" = "scooter", "car" = "car"})
+ * @DiscriminatorMap({"Engin" = "Engin", "Scooter" = "Scooter", "Car" = "Car"})
  * @ORM\Table(name="engin")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EnginRepository")
  *
@@ -81,7 +81,7 @@ class Engin
      *
      * @ORM\Column(name="Price", type="integer")
      */
-    private $price;
+    protected $price;
 
     /**
      * @var string
@@ -96,7 +96,7 @@ class Engin
      * @var unknown
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rending" , mappedBy="engin");
      */
-    private $rending;
+    protected $rending;
 
     /**
      *
