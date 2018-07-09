@@ -9,7 +9,7 @@
 namespace AppBundle\Controller;
 
 
-use AppBundle\Entity\User;
+use AppBundle\Entity\Scooter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -21,7 +21,14 @@ class UserController extends Controller
      */
     public function randomAction()
     {
-        $m = new User();
+        $em = $this->getDoctrine()->getManager();
+        /** @var Scooter $car */
+        $car = $em->getRepository('AppBundle:Scooter')->find(364);
+
+        return $car;
+
+
+        /*$m = new User();
         $m->setRoles(['role_user']);
         $m->setUserName('pop');
         $m->setLastName('nik');
@@ -30,6 +37,6 @@ class UserController extends Controller
         $m->setLoyalty(2);
         $m->setRegistration(new \DateTime('now'));
         $m->setPlainPassword("vcgfcn");
-        return $m;
+        return $m;*/
     }
 }

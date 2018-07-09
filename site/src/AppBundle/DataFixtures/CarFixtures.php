@@ -11,9 +11,10 @@ namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\Car;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CarFixtures extends Fixture
+class CarFixtures extends Fixture implements DependentFixtureInterface
 {
     /**
      * Load data fixtures with the passed EntityManager
@@ -41,5 +42,12 @@ class CarFixtures extends Fixture
             $manager->persist($car);
         }
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return array(
+            UserFixtures::class,
+        );
     }
 }
