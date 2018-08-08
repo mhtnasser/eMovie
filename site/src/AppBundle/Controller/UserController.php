@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -18,18 +19,28 @@ class UserController extends Controller
     /**
      * @Rest\Get("/test")
      * @Rest\View
+     * @param EntityManagerInterface $em
+     * @return null|object
      */
-    public function randomAction()
+    public function randomAction(EntityManagerInterface $em)
     {
-        $m = new User();
-        $m->setRoles(['role_user']);
-        $m->setUserName('pop');
-        $m->setLastName('nik');
-        $m->setPassword('nik');
-        $m->setEmail('nik@pop.com');
-        $m->setLoyalty(2);
-        $m->setRegistration(new \DateTime('now'));
-        $m->setPlainPassword("vcgfcn");
+        /** @var User $m */
+        $m = $em->getRepository('AppBundle:User')->find(1);
+        $m->setPlainPassword('lol');
+        return $m;
+    }
+
+    /**
+     * @Rest\Get("/api/test")
+     * @Rest\View
+     * @param EntityManagerInterface $em
+     * @return null|object
+     */
+    public function apiAction(EntityManagerInterface $em)
+    {
+        /** @var User $m */
+        $m = $em->getRepository('AppBundle:User')->find(1);
+        $m->setPlainPassword('lol');
         return $m;
     }
 }
