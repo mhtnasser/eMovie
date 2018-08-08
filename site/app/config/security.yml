@@ -38,12 +38,12 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         api:
-            pattern: ^/
+            pattern: ^/api
             http_basic:
                 provider: in_memory
             anonymous: false
         api_token:
-            pattern: ^/api
+            pattern: ^/tokens
             stateless: false
             simple_preauth:
                 authenticator: auth_token_authenticator
