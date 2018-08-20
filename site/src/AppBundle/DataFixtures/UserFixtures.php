@@ -42,9 +42,12 @@ class UserFixtures extends Fixture
             $user->setLoyalty(2);
             $user->setRegistration(new \DateTime('now'));
 
-            //$this->addReference('user', $user);
+            $this->addReference('user-' . $i, $user);
             $manager->persist($user);
+
         }
         $manager->flush();
+
     }
+
 }

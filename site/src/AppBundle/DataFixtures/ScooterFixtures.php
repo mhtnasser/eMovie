@@ -11,10 +11,13 @@ namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\Scooter;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ScooterFixtures extends Fixture
+class ScooterFixtures extends Fixture implements DependentFixtureInterface
 {
+    const SCOOTER_REFERENCE = 'scooter_id';
+
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -29,16 +32,26 @@ class ScooterFixtures extends Fixture
             $scooter->setBrand('Marque' . $i);
             $scooter->setColor('Color' . $i);
             $scooter->setDateBuy(new \DateTime('now'));
-            $scooter->setLicensePlate('AA-10'.$i.'BB');
+            $scooter->setLicensePlate('AA-10' . $i . 'BB');
             $scooter->setModel('Scooter' . $i);
             $scooter->setNbKm(1000);
             $scooter->setPlace('2');
             $scooter->setSerialNumber('100' . $i);
             $scooter->setHeatingHandle(true);
             $scooter->setCc(125);
-            
+
+            $this->addReference('Scooter-' . $i, $scooter);
             $manager->persist($scooter);
         }
         $manager->flush();
+
+
+    }
+
+    public function getDependencies()
+    {
+        return array(
+            UserFixtures::class,
+        );
     }
 }
