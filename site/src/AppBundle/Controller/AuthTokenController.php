@@ -54,7 +54,7 @@ class AuthTokenController extends Controller
 
         $isPasswordValide = $encoder->isPasswordValid($user, $credentiels->getPassword());
 
-        if (!$isPasswordValide)
+        if ( !$isPasswordValide)
         { // le mot de passe n'est pas correct
             return $this->invalidCredentials('le mot de passe n\'est pas correct');
         }

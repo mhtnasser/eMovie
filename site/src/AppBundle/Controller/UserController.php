@@ -9,7 +9,9 @@
 namespace AppBundle\Controller;
 
 
-use AppBundle\Entity\Scooter;
+
+use AppBundle\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -18,25 +20,28 @@ class UserController extends Controller
     /**
      * @Rest\Get("/test")
      * @Rest\View
+     * @param EntityManagerInterface $em
+     * @return null|object
      */
-    public function randomAction()
+    public function randomAction(EntityManagerInterface $em)
     {
-        $em = $this->getDoctrine()->getManager();
-        /** @var Scooter $car */
-        $car = $em->getRepository('AppBundle:Scooter')->find(364);
+        /** @var User $m */
+        $m = $em->getRepository('AppBundle:User')->find(1);
+        $m->setPlainPassword('lol');
+        return $m;
+    }
 
-        return $car;
-
-
-        /*$m = new User();
-        $m->setRoles(['role_user']);
-        $m->setUserName('pop');
-        $m->setLastName('nik');
-        $m->setPassword('nik');
-        $m->setEmail('nik@pop.com');
-        $m->setLoyalty(2);
-        $m->setRegistration(new \DateTime('now'));
-        $m->setPlainPassword("vcgfcn");
-        return $m;*/
+    /**
+     * @Rest\Get("/api/test")
+     * @Rest\View
+     * @param EntityManagerInterface $em
+     * @return null|object
+     */
+    public function apiAction(EntityManagerInterface $em)
+    {
+        /** @var User $m */
+        $m = $em->getRepository('AppBundle:User')->find(1);
+        $m->setPlainPassword('lol');
+        return $m;
     }
 }
