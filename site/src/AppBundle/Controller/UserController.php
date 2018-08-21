@@ -40,8 +40,8 @@ class UserController extends Controller
     public function apiAction(EntityManagerInterface $em)
     {
         /** @var User $m */
-        $m = $em->getRepository('AppBundle:User')->find(1);
-        $m->setPlainPassword('lol');
+        $m = $em->getRepository('AppBundle:User')->find(11);
+        $m->setPlainPassword('bonjour ');
         return $m;
     }
 }

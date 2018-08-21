@@ -30,13 +30,14 @@ class RendingController extends Controller {
      */
     public function RendingsAction()
     {
-        $rendings = $this->em->getRepository(Rending::class)->findAll();
+        $rendings = $this->em->getRepository(Rending::class)->find(1);
         if (!$rendings) {
             Throw new NotFoundHttpException('not found rendings');
         }
 
         return $rendings;
     }
+
 
     /**
      * @Rest\Get("/api/rending/{id}")

@@ -25,8 +25,7 @@ class RendingFixtures extends Fixture implements DependentFixtureInterface
             $rending->setNbKm("1345");
             $rending->setPriceByKm(2);
 
-            $rending->setUser($this->getReference('user-' . mt_rand(0, 9)));
-            $rending->setEngin($this->getReference('Scooter-' . mt_rand(0, 29)));
+            $rending->setScooter($this->getReference('Scooter-' . mt_rand(0, 29)));
 
             $this->addReference('Rending-' . $i, $rending);
             $manager->persist($rending);
@@ -37,7 +36,6 @@ class RendingFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return array(
-            UserFixtures::class,
             ScooterFixtures::class,
         );
     }
