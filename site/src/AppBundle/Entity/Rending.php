@@ -58,17 +58,17 @@ class Rending
     
     /**
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Engin" , inversedBy="rending");
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Car");
+     * @ORM\JoinColumn(name="car_id", referencedColumnName="id")
      */
-    private $engin;
+    private $car;
 
     /**
-     * Many Features have One Product.
-     * @ManyToOne(targetEntity="User", inversedBy="rendings")
-     * @JoinColumn(name="user_id", referencedColumnName="id")
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Scooter");
+     * @ORM\JoinColumn(name="scooter_id", referencedColumnName="id")
      */
-    private $user;
-
+    private $scooter;
 
     /**
      * Get id
@@ -206,44 +206,34 @@ class Rending
     }
 
     /**
-     * Set engin
-     *
-     * @param \AppBundle\Entity\Engin $engin
-     *
-     * @return Rending
+     * @return mixed
      */
-    public function setEngin(\AppBundle\Entity\Engin $engin = null)
+    public function getCar()
     {
-        $this->engin = $engin;
-
-        return $this;
+        return $this->car;
     }
 
     /**
-     * Get engin
-     *
-     * @return \AppBundle\Entity\Engin
+     * @param mixed $car
      */
-    public function getEngin()
+    public function setCar($car)
     {
-        return $this->engin;
+        $this->car = $car;
     }
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getScooter()
     {
-        return $this->user;
+        return $this->scooter;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $scooter
      */
-    public function setUser($user)
+    public function setScooter($scooter)
     {
-        $this->user = $user;
+        $this->scooter = $scooter;
     }
-
-
 }

@@ -76,8 +76,12 @@ class User implements UserInterface
     protected $plainPassword;
 
     /**
-     * One Product has Many Features.
-     * @OneToMany(targetEntity="Rending", mappedBy="user")
+     * Many User have Many Phonenumbers.
+     * @ORM\ManyToMany(targetEntity="Rending")
+     * @ORM\JoinTable(name="user_rending",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="rending_id", referencedColumnName="id", unique=true)}
+     *      )
      */
     private $rendings;
     // ...
@@ -276,8 +280,44 @@ class User implements UserInterface
     /**
      * @param string $plainPassword
      */
-    public function setPlainPassword(string $plainPassword)
+    public function setPlainPassword(string $plainPassword ="default") : void
     {
         $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * Add rending.
+     *
+     * @param \AppBundle\Entity\Rending $rending
+     *
+     * @return User
+     */
+    public function addRending(\AppBundle\Entity\Rending $rending)
+    {
+        $this->rendings[] = $rending;
+
+        return $this;
+    }
+
+    /**
+     * Remove rending.
+     *
+     * @param \AppBundle\Entity\Rending $rending
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeRending(\AppBundle\Entity\Rending $rending)
+    {
+        return $this->rendings->removeElement($rending);
+    }
+
+    /**
+     * Get rendings.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRendings()
+    {
+        return $this->rendings;
     }
 }

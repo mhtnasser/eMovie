@@ -94,13 +94,6 @@ class Engin
     /**
      *
      * @var unknown
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rending" , mappedBy="engin");
-     */
-    protected $rending;
-
-    /**
-     *
-     * @var unknown
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ImageEngin" , mappedBy="engin");
      */
     private $imagesEngin;
@@ -111,7 +104,6 @@ class Engin
      */
     public function __construct()
     {
-        $this->rending = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagesEngin = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -312,40 +304,6 @@ class Engin
     public function getPlace(): string
     {
         return $this->place;
-    }
-
-    /**
-     * Add rending
-     *
-     * @param \AppBundle\Entity\Rending $rending
-     *
-     * @return Engin
-     */
-    public function addRending(\AppBundle\Entity\Rending $rending)
-    {
-        $this->rending[] = $rending;
-
-        return $this;
-    }
-
-    /**
-     * Remove rending
-     *
-     * @param \AppBundle\Entity\Rending $rending
-     */
-    public function removeRending(\AppBundle\Entity\Rending $rending)
-    {
-        $this->rending->removeElement($rending);
-    }
-
-    /**
-     * Get rending
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRending()
-    {
-        return $this->rending;
     }
 
     /**

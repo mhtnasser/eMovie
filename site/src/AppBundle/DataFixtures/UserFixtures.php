@@ -11,10 +11,11 @@ namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements DependentFixtureInterface
 {
     private $encoder;
 
@@ -42,6 +43,7 @@ class UserFixtures extends Fixture
             $user->setLoyalty(2);
             $user->setRegistration(new \DateTime('now'));
 
+            $user->addRending($this->getReference('Rending-' .mt_rand(1, 29)));
             $this->addReference('user-' . $i, $user);
             $manager->persist($user);
 
@@ -50,4 +52,10 @@ class UserFixtures extends Fixture
 
     }
 
+    public function getDependencies()
+    {
+        return array(
+            RendingFixtures::class
+        );
+    }
 }

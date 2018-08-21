@@ -11,10 +11,9 @@ namespace AppBundle\DataFixtures;
 
 use AppBundle\Entity\Scooter;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ScooterFixtures extends Fixture implements DependentFixtureInterface
+class ScooterFixtures extends Fixture
 {
     const SCOOTER_REFERENCE = 'scooter_id';
 
@@ -46,12 +45,5 @@ class ScooterFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
 
 
-    }
-
-    public function getDependencies()
-    {
-        return array(
-            UserFixtures::class,
-        );
     }
 }
