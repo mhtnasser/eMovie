@@ -88,6 +88,14 @@ jms_serializer:
             default_format: "Y-m-d\\TH:i:sP"
             default_timezone: "UTC"
 
+nelmio_cors:
+    paths:
+        '^/api/':
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+
 sensio_framework_extra:
     view: { annotations: true }
 
