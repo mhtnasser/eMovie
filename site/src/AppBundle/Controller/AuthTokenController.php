@@ -27,7 +27,7 @@ use Symfony\Component\Security\Core\Tests\Encoder\PasswordEncoder; // alias pour
 class AuthTokenController extends Controller
 {
     /**
-     * @Rest\View(statusCode=Response::HTTP_CREATED, serializerGroups={"auth-token"})
+     * @Rest\View(statusCode=Response::HTTP_CREATED)
      * @Rest\Post("/auth-tokens")
      * @param Request $request
      * @param EntityManager|EntityManagerInterface $em
@@ -65,6 +65,7 @@ class AuthTokenController extends Controller
         $authtoken->setCreatedAt(new \DateTime('now'));
         $authtoken->setUser($user);
 
+//        dump($user, $authtoken);die();
         $em->persist($authtoken);
         $em->flush();
         return $authtoken;
