@@ -96,7 +96,7 @@ class Engin
      * @var unknown
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ImageEngin" , mappedBy="engin");
      */
-    private $imagesEngin;
+    protected $imagesEngin;
 
 
     /**
