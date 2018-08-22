@@ -1,0 +1,91 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+}
+
+p, h6 {
+    margin: 5px 5px;
+}
+ol, ul {
+    padding-left: 30px;
+}
+
+.kiosque, .Jeux h3, .Jeux p, .HistoryGame, h1, h5, .morpion form{
+    text-align: center;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 60px;
+    background-color: #0f0f0f;
+    color: #f5f5f5;
+    text-align: center;
+    margin: 10px;
+}
+
+#category {
+    font-size: 10px;
+}
+
+#categories {
+    text-align: left;
+}
+
+/* MORPION */
+.morpion {
+    margin: 50px;
+    text-align: center;
+}
+
+.board, .error {
+    width: 27%;
+    margin: auto;
+}
+
+.form-morpion {
+    text-align: center;
+    padding-left: 110px;
+    margin: 30px;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+
+/* Responsive design */
+
+@media all and (min-width: 480px) {
+    .Login, .Register, .Forgotten, .Profil, .Jeux, .HistoryGame {
+        padding: 60px 0;
+    }
+
+    .Login form, .Register form, .Forgotten form, .Profil form, .Jeux form, .HistoryGame form {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+}
