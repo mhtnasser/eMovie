@@ -79,4 +79,25 @@ class AuthTokenController extends Controller
     {
         return View::create(['message' => $msg], Response::HTTP_BAD_REQUEST);
     }
+
+    /**
+     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
+     * @Rest\Delete("/tokens/auth-tokens/{id}")
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     */
+    public function removeAuthTokenAction(Request $request, EntityManagerInterface $em)
+    {
+        $authToken = $em->getRepository('AppBundle:AuthToken')
+            ->find($request->get('id'));
+        /* @var $authToken AuthToken */
+
+        $connectedUser = $this->get('security.token_storage')->getToken()->getUser();
+        if ($authToken && $authToken->getUser()->getId() === $connectedUser->getId()) {
+            $em->remove($authToken);
+            $em->flush();
+        } else {
+            throw new \Symfony\Component\HttpKernel\Exception\BadRequestHttpException();
+        }
+    }
 }
