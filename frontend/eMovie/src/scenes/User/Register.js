@@ -10,11 +10,11 @@ import {
 } from 'react-bootstrap';
 
 
-async function checkStatus (response) {
-    if (response.status >= 200 && response.status <300) {
-        return  response.json();
+async function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return response.json();
     } else {
-        throw  await response.json();
+        throw await response.json();
     }
 }
 
@@ -30,20 +30,23 @@ export default class Register extends React.Component {
             firstname: '',
             lastname: '',
             password: '',
-            birthday: ''
+            birthday: '',
+            address: '',
+            phone: null,
+            numberDrive: null,
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        this.setState({[event.target.name]:event.target.value });
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     registerUser = (event) => {
         event.preventDefault();
         // Notification de mon loading
-        this.setState({loading: true});
+        this.setState({ loading: true });
         const data = {
             email: this.state.email,
             firstname: this.state.firstname,
@@ -56,20 +59,20 @@ export default class Register extends React.Component {
         // Je fais appel a mon api pour envoyer mes données
         fetch("https://dev.kioskp.com/api/register", {
             method: 'POST',
-            accept:'application/json',
+            accept: 'application/json',
             headers: {
-                'Accept':'application/json',
-                'Content-Type':'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
             .then(checkStatus)
-            .then(response =>{
-                this.setState({loading:false, error:null, success:response.message});
+            .then(response => {
+                this.setState({ loading: false, error: null, success: response.message });
             })
             // Je récupère le message d'erreur et j'arrête le loading
-            .catch(e =>{
-                this.setState({error: e.message, loading:false});
+            .catch(e => {
+                this.setState({ error: e.message, loading: false });
             })
     };
 
@@ -77,16 +80,16 @@ export default class Register extends React.Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/'/>;
+            return <Redirect to='/' />;
         }
 
         return (
             <div className="Register">
                 <form onSubmit={this.registerUser}>
                     <div>
-                        { this.state.loading && <Alert bsStyle="success">Chargement en cours</Alert> }
-                        { !!this.state.error && <Alert bsStyle="danger">{this.state.error}</Alert>}
-                        { !!this.state.success && <Alert bsStyle="success">{this.state.success}</Alert> }
+                        {this.state.loading && <Alert bsStyle="success">Chargement en cours</Alert>}
+                        {!!this.state.error && <Alert bsStyle="danger">{this.state.error}</Alert>}
+                        {!!this.state.success && <Alert bsStyle="success">{this.state.success}</Alert>}
                     </div>
                     <FormGroup controlId="firstname" bsSize="large">
                         <ControlLabel>Prénom</ControlLabel>
@@ -96,7 +99,7 @@ export default class Register extends React.Component {
                             name="firstname"
                             value={this.state.firstname}
                             onChange={this.handleChange}
-                    />
+                        />
                     </FormGroup>
                     <FormGroup controlId="lastname" bsSize="large">
                         <ControlLabel>Nom</ControlLabel>
@@ -128,15 +131,45 @@ export default class Register extends React.Component {
                         />
                     </FormGroup>
                     <FormGroup controlId="birthday" bsSize="large">
-                    <ControlLabel>Date de naissance</ControlLabel>
-                    <FormControl
-                        autoFocus
-                        type="date"
-                        name="birthday"
-                        value={this.state.birthday}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+                        <ControlLabel>Date de naissance</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="date"
+                            name="birthday"
+                            value={this.state.birthday}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="address" bsSize="large">
+                        <ControlLabel>Adresse</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="firstname"
+                            name="address"
+                            value={this.state.address}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="phone" bsSize="large">
+                        <ControlLabel>Téléphone</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="phone"
+                            value={this.state.phone}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup controlId="numberDrive" bsSize="large">
+                        <ControlLabel>Numéro de permis</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="numberDrive"
+                            value={this.state.numberDrive}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
                     <Button
                         block
                         bsSize="large"
