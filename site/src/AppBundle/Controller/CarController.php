@@ -10,8 +10,13 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Car;
+use AppBundle\Form\CarType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormFactory;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -57,8 +62,16 @@ class CarController extends Controller
         return $car;
     }
 
-    public function postCarAction(Request $request)
+    /**
+     * working in the methode
+     * @Rest\Get("/toto", name="post_cars")
+     * @param Request $request
+     * @param FormFactory|FormFactoryInterface $factory
+     */
+    public function postCarAction(Request $request, FormFactoryInterface $factory)
     {
-
+        $car = new Car();
+        $form = $factory->create(CarType::class, $car);
+        dump($form); die();
     }
 }
