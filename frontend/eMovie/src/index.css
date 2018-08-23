@@ -14,6 +14,32 @@ ol, ul {
     text-align: center;
 }
 
+.Container {
+  
+    text-align: center;
+}
+
+.Container-Card {
+  
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.Carroussel {
+    margin: 50px;
+}
+
+.Card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Voiture, {
+    margin-top: 10px;
+    padding: 10px;
+}
+
 .footer {
     bottom: 0;
     width: 100%;

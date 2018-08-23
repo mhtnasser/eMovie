@@ -14,6 +14,7 @@ import {
 import { connect } from 'react-redux';
 
 import Home from './scenes/Home';
+import Location from './scenes/Location';
 import Voiture from './scenes/Voiture';
 import Scooter from './scenes/Scooter';
 import Login from './scenes/User/Login';
@@ -67,6 +68,7 @@ class App extends React.Component {
                         </Navbar.Collapse>
                     </Navbar>
                     <Route exact path="/" component={Home}/>
+                    <Route exact path="/location" component={Location}/>
                     <Route path="/voiture" component={Voiture}/>
                     <Route path="/scooter" component={Scooter}/>
                     <Route path="/login" component={Login}/>
